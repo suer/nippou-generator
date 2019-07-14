@@ -11,5 +11,14 @@ module Nippou
       since = options['since'] ? Date.parse(options['since']) : Date.today
       puts Github::API.new(config).list(since_date: since)
     end
+
+    desc 'esa', 'generate from esa activity'
+    option 'config', aliases: 'c', type: :string, required: true
+    option 'since', aliases: 's', type: :string
+    def esa
+      config = Config.new(options['config'])
+      since = options['since'] ? Date.parse(options['since']) : Date.today
+      puts Esa::API.new(config).list(since_date: since)
+    end
   end
 end

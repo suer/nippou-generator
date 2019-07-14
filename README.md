@@ -14,6 +14,12 @@ $ gem specific_install -l ./.git
 github:
   username: (YOUR GITHUB USERNAME)
   token: (YOUR GITHUB TOKEN)
+esa:
+  teams:
+    - (YOUR ESA TEAM1)
+    - (YOUR ESA TEAM2)
+  username: (YOUR ESA USERNAME)
+  token: (YOUR ESA TOKEN)
 ```
 
 ## Usage

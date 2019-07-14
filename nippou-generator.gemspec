@@ -42,4 +42,5 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "thor", "0.20.3"
   spec.add_dependency "octokit", "4.14.0"
+  spec.add_dependency "faraday", "0.15.4"
 end
