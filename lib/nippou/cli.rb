@@ -5,7 +5,7 @@ module Nippou
   class Cli < Thor
     desc 'github', 'generate from github activity'
     def github
-      puts 'todo'
+      puts Github::API.new.list
     end
   end
 end
