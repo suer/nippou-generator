@@ -3,15 +3,15 @@ require 'nippou/github/issue'
 module Nippou
   module Github
     class SearchResult
-      def initialize(result)
-        @result = result
+      def initialize(issues)
+        @issues = issues
       end
 
       def to_markdown
         per_repo = {}
-        result.items.each do |issue|
-          per_repo[issue.repository_url] = [] unless per_repo[issue.repository_url]
-          per_repo[issue.repository_url] << Issue.new(issue)
+        issues.each do |issue|
+          per_repo[issue.repository] = [] unless per_repo[issue.repository]
+          per_repo[issue.repository] << issue
         end
 
         markdown = ''
@@ -25,7 +25,7 @@ module Nippou
       end
 
       private
-      attr_reader :result
+      attr_reader :issues
     end
   end
 end

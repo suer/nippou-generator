@@ -2,4 +2,4 @@
 
 require "nippou"
 
-Nippou::Cli.start
+Nippou::Cli.start(ARGV)
