@@ -28,6 +28,8 @@ esa:
 $ nippou github -c /path/to/config
 # fetch from esa
 $ nippou esa -c /path/to/config
+# all
+$ nippou all -c /path/to/config
 ```
 
 ## Command Line Options
