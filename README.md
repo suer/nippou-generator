@@ -8,11 +8,25 @@ $ gem install specific_install
 $ gem specific_install -l ./.git
 ```
 
+## configuration
+
+```yaml
+github:
+  username: (YOUR GITHUB USERNAME)
+  token: (YOUR GITHUB TOKEN)
+```
+
 ## Usage
 
 ```
-$ nippou
+$ nippou github -c /path/to/config
 ```
+
+## options
+
+* github
+  * --config, -c(required): path to configuration
+  * --since, -s(required): start date to search pull reuqest(default: today)
 
 ## Development
 
