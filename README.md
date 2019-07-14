@@ -1,6 +1,5 @@
 # nippou-generator
 
-
 ## Installation
 
 ```
@@ -8,7 +7,7 @@ $ gem install specific_install
 $ gem specific_install -l ./.git
 ```
 
-## configuration
+## Configuration
 
 ```yaml
 github:
@@ -25,14 +24,16 @@ esa:
 ## Usage
 
 ```
+# fetch from github
 $ nippou github -c /path/to/config
+# fetch from esa
+$ nippou esa -c /path/to/config
 ```
 
-## options
+## Command Line Options
 
-* github
-  * --config, -c(required): path to configuration
-  * --since, -s(required): start date to search pull reuqest(default: today)
+* --config, -c(required): path to configuration
+* --since, -s(required): start date to search pull reuqest(default: today)
 
 ## Development
 
