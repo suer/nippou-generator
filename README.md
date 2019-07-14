@@ -1,28 +1,18 @@
-# Nippou::Generator
+# nippou-generator
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/nippou/generator`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'nippou-generator'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install nippou-generator
+$ gem install specific_install
+$ gem specific_install -l ./.git
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ nippou
+```
 
 ## Development
 
