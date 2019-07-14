@@ -1,6 +1,5 @@
 require 'octokit'
 require 'nippou/github/search_result'
-require 'nippou/github/config'
 require 'date'
 
 module Nippou
@@ -8,16 +7,19 @@ module Nippou
     PER_PAGE = 100
 
     class API
-      def list(since_date: Date.today - 100)
-        user = 'suer'
-        author = search(type: 'author', user: user, since_date: since_date)
-        reviewedBy = search(type: 'reviewed-by', user: user, since_date: since_date)
+      def initialize(config)
+        @config = config
+      end
 
-        markdown = '**Review**'
+      def list(since_date: Date.today - 100)
+        author = search(type: 'author', user: config.github_username, since_date: since_date)
+        reviewedBy = search(type: 'reviewed-by', user: config.github_username, since_date: since_date)
+
+        markdown = '**Author**'
         markdown << "\n"
         markdown << SearchResult.new(author).to_markdown
         markdown << "\n"
-        markdown << '**Author**'
+        markdown << '**Review**'
         markdown << "\n"
         markdown << SearchResult.new(reviewedBy).to_markdown
         markdown << "\n"
@@ -25,8 +27,10 @@ module Nippou
       end
 
       private
+      attr_reader :config
+
       def client
-        Octokit::Client.new(access_token: Config.github_token)
+        Octokit::Client.new(access_token: config.github_token)
       end
 
       def search(type:, user:, since_date:)
