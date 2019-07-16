@@ -10,7 +10,7 @@ module Nippou
       end
 
       def list(since_date: Date.today)
-        markdown = ''
+        markdown = "**esa**\n"
         config.esa_teams.each do |team|
           markdown << "* #{team}\n"
           posts = fetch_posts(team: team, since_date: since_date)
