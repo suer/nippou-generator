@@ -17,7 +17,7 @@ module Nippou
 
         markdown = '**Author**'
         markdown << "\n"
-        markdown << SearchResult.new(author).to_markdown
+        markdown << SearchResult.new(author).to_markdown(with_status: true)
         markdown << "\n"
         markdown << '**Review**'
         markdown << "\n"

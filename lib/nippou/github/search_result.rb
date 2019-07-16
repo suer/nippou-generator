@@ -7,7 +7,7 @@ module Nippou
         @issues = issues
       end
 
-      def to_markdown
+      def to_markdown(with_status: false)
         per_repo = {}
         issues.each do |issue|
           per_repo[issue.repository] = [] unless per_repo[issue.repository]
@@ -18,7 +18,7 @@ module Nippou
         per_repo.each do |url, issues|
           markdown << "* #{url.split('/').last}\n"
           issues.each do |issue|
-            markdown << "    * #{issue.to_markdown}\n"
+            markdown << "    * #{issue.to_markdown(with_status: with_status)}\n"
           end
         end
         markdown
