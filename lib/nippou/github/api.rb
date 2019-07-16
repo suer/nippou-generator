@@ -36,7 +36,7 @@ module Nippou
       def search(type:, user:, since_date:)
         issues = []
         page = 1
-        query = "is:pr #{type}:#{user} updated:>=#{since_date.strftime('%Y-%m-%d')}"
+        query = "is:pr #{type_query(type: type, user: user)} updated:>=#{since_date.strftime('%Y-%m-%d')}"
         loop do
           result = client.search_issues(query, page: page, per_page: PER_PAGE)
           issues += result.items.map {|issue| Issue.new(issue) }
@@ -44,6 +44,12 @@ module Nippou
           page += 1
         end
         issues
+      end
+
+      def type_query(type:, user:)
+        query = "#{type}:#{user}"
+        query += " -author:#{user}" if type == 'reviewed-by'
+        query
       end
     end
   end
