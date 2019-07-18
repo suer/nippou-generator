@@ -11,7 +11,7 @@ module Nippou
         @config = config
       end
 
-      def list(since_date: Date.today - 100)
+      def list(since_date: Date.today)
         author = search(type: 'author', user: config.github_username, since_date: since_date)
         reviewedBy = search(type: 'reviewed-by', user: config.github_username, since_date: since_date)
 

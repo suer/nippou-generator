@@ -27,6 +27,22 @@ module Nippou
       @config['esa']['token']
     end
 
+    def gcal_credentials_path
+      @config['gcal']['credentials_path']
+    end
+
+    def gcal_token_store_path
+      File.join(File::dirname(gcal_credentials_path), 'tokens.yml')
+    end
+
+    def gcal_code
+      @config['gcal']['code']
+    end
+
+    def gcal_calendar_ids
+      @config['gcal']['calendar_ids']
+    end
+
     private
     attr_reader :config
   end

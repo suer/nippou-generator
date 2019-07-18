@@ -19,7 +19,23 @@ esa:
     - (YOUR ESA TEAM2)
   username: (YOUR ESA USERNAME)
   token: (YOUR ESA TOKEN)
+  gcal:
+    credentials_path: (credential file path)
+    code: (auth code)
+    calendar_ids:
+      - (calendar_id 1)
+      - (calendar_id 2)
 ```
+
+## setting for Google Calendar API
+
+**credentials_path**
+enabel at https://developers.google.com/calendar/quickstart/ruby,
+then download credentials json file.
+
+**code**
+`nippou gcal_prepare` command shows URL.
+You can get API code from the URL with your browser.
 
 ## Usage
 
@@ -28,6 +44,8 @@ esa:
 $ nippou github -c /path/to/config
 # fetch from esa
 $ nippou esa -c /path/to/config
+# fetch from Google Calendar
+$ nippou gcal -c /path/to/config
 # all
 $ nippou all -c /path/to/config
 ```

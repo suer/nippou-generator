@@ -17,6 +17,7 @@ module Nippou
           markdown << posts.map {|post| "    * #{post.to_markdown}" }.join("\n")
           markdown << "\n"
         end
+        markdown << "\n"
         markdown
       end
 
