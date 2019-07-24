@@ -26,7 +26,7 @@ module Nippou
           finish_time = if event.end.date
             '23:59'
           elsif event.end.date_time
-            event.start.date_time.strftime('%H:%M')
+            event.end.date_time.strftime('%H:%M')
           end
           events_by_day[start_date] = [] unless events_by_day[start_date]
           events_by_day[start_date] << "- #{start_time}-#{finish_time} #{event.summary}"
