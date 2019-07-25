@@ -36,7 +36,7 @@ module Nippou
         markdown << "\n"
         Hash[events_by_day.sort].each do |date, summaries|
           markdown << "- #{date}\n"
-          markdown << summaries.map {|s| "  #{s}"}.join("\n")
+          markdown << summaries.sort.map {|s| "  #{s}"}.join("\n")
           markdown << "\n"
         end
         markdown << "\n"
