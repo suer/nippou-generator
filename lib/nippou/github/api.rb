@@ -13,7 +13,7 @@ module Nippou
 
       def list(since_date: Date.today)
         author = search(type: 'author', user: config.github_username, since_date: since_date)
-        reviewedBy = search(type: 'reviewed-by', user: config.github_username, since_date: since_date)
+        commenter = search(type: 'commenter', user: config.github_username, since_date: since_date)
 
         markdown = '**Author**'
         markdown << "\n"
@@ -21,7 +21,7 @@ module Nippou
         markdown << "\n"
         markdown << '**Review**'
         markdown << "\n"
-        markdown << SearchResult.new(reviewedBy).to_markdown
+        markdown << SearchResult.new(commenter).to_markdown
         markdown << "\n"
         markdown
       end
@@ -48,7 +48,7 @@ module Nippou
 
       def type_query(type:, user:)
         query = "#{type}:#{user}"
-        query += " -author:#{user}" if type == 'reviewed-by'
+        query += " -author:#{user}" if type == 'commenter'
         query
       end
     end
